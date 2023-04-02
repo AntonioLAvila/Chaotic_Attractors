@@ -11,31 +11,34 @@ double z = 0.01;
 //double z = -0.01;
 
 double dt = 0.01;
-
 int LENGTH = 100000;
-
 ArrayList<PVector> points = new ArrayList<PVector>();
-
 PeasyCam cam;
+
+//hue shade value
+float hg = random(0, 255);
 
 void setup(){
   strokeWeight(0.1);
-  stroke(255);
   noCursor();
   fullScreen(P3D);
   noFill();
   smooth();
   frameRate(170);
   colorMode(HSB);
+  //stroke(h, s, v);
   cam = new PeasyCam(this, 500);
 }
 
 void draw(){
   background(0);
-  scale(12);
+  scale(15);
   beginShape();
-  for (PVector v : points){
-    vertex(v.x, v.y, v.z);
+  float h = hg;
+  for (PVector vec : points){
+    stroke(h,255,255);
+    vertex(vec.x, vec.y, vec.z);
+    h = (h>=255) ? h=0 : h+1;
   }
   endShape();
   
