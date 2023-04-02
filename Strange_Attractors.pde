@@ -1,14 +1,14 @@
 import peasy.*;
 
 // aizawa
-//double x = 0.1;
-//double y = 1.0;
-//double z = 0.01;
+double x = 0.1;
+double y = 1.0;
+double z = 0.01;
 
 // thomas
-double x = 1.1;
-double y = 1.1;
-double z = -0.01;
+//double x = 1.1;
+//double y = 1.1;
+//double z = -0.01;
 
 double dt = 0.01;
 
@@ -69,21 +69,21 @@ void draw(){
 //}
 
 //-------------------------Aizawa----------------------------
-//double a = 0.95;
-//double b = 0.7;
-//double c = 0.6;
-//double d = 3.5;
-//double e = 0.25;
-//double f = 0.1;
-//double dx(double x, double y, double z){
-//  return ((z - b) * x) - (d * y);
-//}
-//double dy(double x, double y, double z){
-//  return (d * x) + ((z - b) * y);
-//}
-//double dz(double x, double y, double z){
-//  return c + (a * z) - (pow((float)z, 3.0) / 3) - ((pow((float)x, 2.0) + pow((float)y, 2.0)) * (1 + e * z)) + (f * z * pow((float)x, 3));
-//}
+double a = 0.95;
+double b = 0.7;
+double c = 0.6;
+double d = 3.5;
+double e = 0.25;
+double f = 0.1;
+double dx(double x, double y, double z){
+  return ((z - b) * x) - (d * y);
+}
+double dy(double x, double y, double z){
+  return (d * x) + ((z - b) * y);
+}
+double dz(double x, double y, double z){
+  return c + (a * z) - (pow((float)z, 3.0) / 3) - ((pow((float)x, 2.0) + pow((float)y, 2.0)) * (1 + e * z)) + (f * z * pow((float)x, 3));
+}
 
 //----------------------------Halvorsen---------------------------
 //double a = 1.89;
@@ -111,13 +111,13 @@ void draw(){
 //}
 
 //----------------------------Thomas-------------------------------------
-double b = 0.208186;
-double dx(double x, double y, double z){
-  return sin((float)y) - (b*x);
-}
-double dy(double x, double y, double z){
-  return sin((float)z) - (b*y);
-}
-double dz(double x, double y, double z){
-  return sin((float)x) - (b*z);
-}
+//double b = 0.208186;
+//double dx(double x, double y, double z){
+//  return sin((float)y) - (b*x);
+//}
+//double dy(double x, double y, double z){
+//  return sin((float)z) - (b*y);
+//}
+//double dz(double x, double y, double z){
+//  return sin((float)x) - (b*z);
+//}
