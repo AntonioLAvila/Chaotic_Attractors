@@ -1,10 +1,16 @@
 import peasy.*;
 
-double x = 0.1;
-double y = 1.0;
-double z = 0.01;
+// aizawa
+//double x = 0.1;
+//double y = 1.0;
+//double z = 0.01;
 
-double dt = 0.005;
+// thomas
+double x = 1.1;
+double y = 1.1;
+double z = -0.01;
+
+double dt = 0.01;
 
 int LENGTH = 100000;
 
@@ -80,16 +86,16 @@ void draw(){
 //}
 
 //----------------------------Halvorsen---------------------------
-double a = 1.89;
-double dx(double x, double y, double z){
-  return -(a * x) - (4 * y) - (4 * z) - pow((float)y, 2.0);
-}
-double dy(double x, double y, double z){
-  return -(a * y) - (4 * z) - (4 * x) - pow((float)z, 2.0);
-}
-double dz(double x, double y, double z){
-  return -(a * z) - (4 * x) - (4 * y) - pow((float)x, 2.0);
-}
+//double a = 1.89;
+//double dx(double x, double y, double z){
+//  return -(a * x) - (4 * y) - (4 * z) - pow((float)y, 2.0);
+//}
+//double dy(double x, double y, double z){
+//  return -(a * y) - (4 * z) - (4 * x) - pow((float)z, 2.0);
+//}
+//double dz(double x, double y, double z){
+//  return -(a * z) - (4 * x) - (4 * y) - pow((float)x, 2.0);
+//}
 
 //--------------------------------Rabinovich-Fabrikant----------------------
 //double alpha = 0.14;
@@ -103,3 +109,15 @@ double dz(double x, double y, double z){
 //double dz(double x, double y, double z){
 //  return -2*z*(alpha + x*y);
 //}
+
+//----------------------------Thomas-------------------------------------
+double b = 0.208186;
+double dx(double x, double y, double z){
+  return sin((float)y) - (b*x);
+}
+double dy(double x, double y, double z){
+  return sin((float)z) - (b*y);
+}
+double dz(double x, double y, double z){
+  return sin((float)x) - (b*z);
+}
