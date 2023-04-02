@@ -19,7 +19,7 @@ PeasyCam cam;
 float hg = random(0, 255);
 
 void setup(){
-  strokeWeight(0.1);
+  strokeWeight(0.05);
   noCursor();
   fullScreen(P3D);
   noFill();
@@ -32,7 +32,7 @@ void setup(){
 
 void draw(){
   background(0);
-  scale(15);
+  scale(50);
   beginShape();
   float h = hg;
   for (PVector vec : points){
