@@ -20,9 +20,6 @@ int LENGTH = 2147483647;
 ArrayList<PVector> points = new ArrayList<PVector>();
 PeasyCam cam;
 
-//hue shade value
-float hg = random(0, 255);
-
 void setup(){
   strokeWeight(0.05);
   noCursor();
@@ -39,11 +36,17 @@ void draw(){
   background(0);
   scale(50);
   beginShape();
-  float h = hg;
+  float h = 140;
+  float d = 1;
   for (PVector vec : points){
     stroke(h,255,255);
     vertex(vec.x, vec.y, vec.z);
-    h = (h>=255) ? h=0 : h+1;
+    if (h <= 140){
+      d = 1;
+    }else if(h >= 230){
+      d = -1;
+    }
+    h = h + d;
   }
   endShape();
   
