@@ -18,4 +18,8 @@ public abstract class Attractor{
   public void display(){
     for (Point p : points) p.display();
   }
+  
+  public void setDt(double dt){
+    this.dt = dt;
+  }
 }
