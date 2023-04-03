@@ -2,7 +2,7 @@ public class Point{
   private double x;
   private double y;
   private double z;
-  private int l = 100; //2147483647
+  private int l = 2147483647; //2147483647
   
   private ArrayList<PVector> line = new ArrayList<PVector>();
   

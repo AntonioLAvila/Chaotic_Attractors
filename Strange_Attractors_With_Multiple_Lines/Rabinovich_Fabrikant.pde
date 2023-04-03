@@ -1,5 +1,5 @@
 public class Rabinovich_Fabrikant{
-  public double dt = 0.01;
+  public double dt = 0.05;
   private double alpha = 0.14;
   private double gamma = 0.10;
   
@@ -11,7 +11,7 @@ public class Rabinovich_Fabrikant{
         points.add(new Point((double)random(min, max), (double)random(min, max), (double)random(min, max)));
       }
     }else{
-      points.add(new Point(1.0,1.0,1.0));
+      points.add(new Point(-1.0,0.0,0.5));
     }
   }
   

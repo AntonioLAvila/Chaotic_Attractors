@@ -1,6 +1,6 @@
 import peasy.*;
 
-Halvorsen attractor = new Halvorsen(true, 30, -5, 5);
+Lorentz attractor = new Lorentz(false, 100, -2, 2, true);
 PeasyCam cam;
 
 void setup(){

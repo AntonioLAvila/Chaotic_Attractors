@@ -7,12 +7,19 @@ public class Lorentz{
   
   private ArrayList<Point> points = new ArrayList<Point>();
   
-  Lorentz(boolean random, int num_points, float min, float max){
+  Lorentz(boolean random, int num_points, float min, float max, boolean chaos){
     if (random){
       for (int i = 0; i < num_points; i++){
         points.add(new Point((double)random(min, max), (double)random(min, max), (double)random(min, max)));
       }
-    }else{
+    }else if (chaos){
+      double x = random(min, max);
+      double y = random(min, max);
+      double z = random(min, max);
+      
+      points.add(new Point(x, y, z));
+      points.add(new Point(x + 0.001, y, z));
+    } else{
       points.add(new Point(1.0,1.0,1.0));
     }
   }
