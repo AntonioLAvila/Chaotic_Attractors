@@ -37,6 +37,8 @@ public class Lorentz{
   }
   
   public void display(){
-    for (Point p : points) p.display();
+    for (Point p : points){
+      p.display();
+    }
   }
 }

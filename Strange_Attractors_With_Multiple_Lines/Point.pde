@@ -2,7 +2,7 @@ public class Point{
   private double x;
   private double y;
   private double z;
-  private int l = 2147483647;
+  private int l = 100; //2147483647
   
   private ArrayList<PVector> line = new ArrayList<PVector>();
   
@@ -14,7 +14,6 @@ public class Point{
   }
   
   public void display(){
-    scale(50);
     beginShape();
     float h = 140;
     float d = 1;
@@ -41,10 +40,6 @@ public class Point{
     }else{
       line.add(new PVector((float)x, (float)y, (float)z));
     }
-    //println("x" + x);
-    //println("y" + y);
-    //println("z" + z);
-    //println();
   }
   
   public double getX(){

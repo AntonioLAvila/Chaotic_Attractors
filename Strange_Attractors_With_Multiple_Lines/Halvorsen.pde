@@ -11,7 +11,7 @@ public class Halvorsen{
         points.add(new Point((double)random(min, max), (double)random(min, max), (double)random(min, max)));
       }
     }else{
-      points.add(new Point(1.0,1.0,1.0));
+      points.add(new Point(-1.48, -1.51, 0.01));
     }
   }
   
