@@ -1,6 +1,6 @@
 import peasy.*;
 
-Lorentz attractor = new Lorentz(false, 100, -2, 2, true);
+Lorentz attractor = new Lorentz(true, 100, -2, 2, false);
 PeasyCam cam;
 
 void setup(){
