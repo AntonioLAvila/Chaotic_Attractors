@@ -1,11 +1,11 @@
 import peasy.*;
 
-double global_dt = 0.01;
+double global_dt = 0.008;
 Halvorsen attractor = new Halvorsen(100, -2, 2);
 PeasyCam cam;
 
 void setup(){
-  strokeWeight(0.1);
+  strokeWeight(.25);
   //noCursor();
   //size(800, 800, P3D);
   fullScreen(P3D);
