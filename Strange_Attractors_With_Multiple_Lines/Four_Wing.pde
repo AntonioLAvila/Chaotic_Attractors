@@ -1,33 +1,34 @@
-public class Rabinovich_Fabrikant extends Attractor{
+public class Four_Wing extends Attractor{
   public double dt = 0.05;
-  private double alpha = 0.14;
-  private double gamma = 0.10;
   
-  
-  Rabinovich_Fabrikant(int num_points, float min, float max){
+  private double a = 0.2;
+  private double b = 0.01;
+  private double c = -0.4;
+    
+  Four_Wing(int num_points, float min, float max){
     for (int i = 0; i < num_points; i++){
       super.points.add(new Point((double)random(min, max), (double)random(min, max), (double)random(min, max)));
     }
     super.dt = dt;
   }
   
-  Rabinovich_Fabrikant(double x, double y, double z){
+  Four_Wing(double x, double y, double z){
     super.points.add(new Point(x, y, z));
     super.dt = dt;
   }
   
-  Rabinovich_Fabrikant(){
-    super.points.add(new Point(-1, 0, 0.5));
+  Four_Wing(){
+    super.points.add(new Point(1.3, -0.18, 0.01));
     super.dt = dt;
   }
   
   protected double dx(double x, double y, double z){
-    return y*(z - 1 + pow((float)x, 2.0)) + (gamma * x);
+    return (a * x) + (y * z);
   }
   protected double dy(double x, double y, double z){
-    return x*(3*z + 1 - pow((float)x, 2.0)) + (gamma * y);
+    return (b * x) + (c * y) - (x * z);
   }
   protected double dz(double x, double y, double z){
-    return -2*z*(alpha + x*y);
+    return -z - (x * y);
   }
 }

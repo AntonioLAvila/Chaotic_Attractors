@@ -1,51 +1,42 @@
-public class Lorentz{
+public class Lorentz extends Attractor{
   public double dt = 0.01;
   
   private double sigma = 10;
   private double rho = 28;
   private double beta = 8.0/3.0;
-  
-  private ArrayList<Point> points = new ArrayList<Point>();
-  
-  Lorentz(boolean random, int num_points, float min, float max, boolean chaos){
-    if (random){
-      for (int i = 0; i < num_points; i++){
-        points.add(new Point((double)random(min, max), (double)random(min, max), (double)random(min, max)));
-      }
-    }else if (chaos){
-      double x = random(min, max);
-      double y = random(min, max);
-      double z = random(min, max);
-      
-      points.add(new Point(x, y, z));
-      points.add(new Point(x + 0.001, y, z));
-    } else{
-      points.add(new Point(1.0,1.0,1.0));
+    
+  Lorentz(int num_points, float min, float max){
+    for (int i = 0; i < num_points; i++){
+      super.points.add(new Point((double)random(min, max), (double)random(min, max), (double)random(min, max)));
     }
+    super.dt = dt;
   }
   
-  private double dx(double x, double y, double z){
+  Lorentz(double x, double y, double z){
+    super.points.add(new Point(x, y, z));
+    super.dt = dt;
+  }
+  
+  Lorentz(boolean chaos){
+    if (chaos){
+      double x = (double)random(-2,2);
+      double y = (double)random(-2,2);
+      double z = (double)random(-2,2);
+      super.points.add(new Point(x, y, z));
+      super.points.add(new Point(x+0.001, y, z));
+    }else{
+      super.points.add(new Point(1.1, 2.0, 7.0));
+    }
+    super.dt = dt;
+  }
+  
+  protected double dx(double x, double y, double z){
     return sigma * (y - x);
   }
-  private double dy(double x, double y, double z){
+  protected double dy(double x, double y, double z){
     return (x * (rho - z)) - y;
   }
-  private double dz(double x, double y, double z){
+  protected double dz(double x, double y, double z){
     return (x * y) - (beta * z);
-  }
-  
-  public void updatePoints(){
-    for(Point p : points){
-      double x = p.getX();
-      double y = p.getY();
-      double z = p.getZ();
-      p.update(dx(x,y,z) * dt, dy(x,y,z) * dt, dz(x,y,z) * dt);
-    }
-  }
-  
-  public void display(){
-    for (Point p : points){
-      p.display();
-    }
   }
 }

@@ -1,16 +1,15 @@
 import peasy.*;
 
-Lorentz attractor = new Lorentz(true, 100, -2, 2, false);
+Aizawa attractor = new Aizawa(1000, -5, 5);
 PeasyCam cam;
 
 void setup(){
   strokeWeight(0.05);
   noCursor();
-  //size(800, 800, P3D);
   fullScreen(P3D);
   noFill();
   smooth();
-  frameRate(170);
+  //frameRate(170);
   colorMode(HSB);
   cam = new PeasyCam(this, 500);
 }

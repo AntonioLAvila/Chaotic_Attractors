@@ -1,4 +1,4 @@
-public class Aizawa{
+public class Aizawa extends Attractor{
   public double dt = 0.01;
   
   private double a = 0.95;
@@ -7,39 +7,31 @@ public class Aizawa{
   private double d = 3.5;
   private double e = 0.25;
   private double f = 0.1;
-  
-  private ArrayList<Point> points = new ArrayList<Point>();
-  
-  Aizawa(boolean random, int num_points, float min, float max){
-    if (random){
-      for (int i = 0; i < num_points; i++){
-        points.add(new Point((double)random(min, max), (double)random(min, max), (double)random(min, max)));
-      }
-    }else{
-      points.add(new Point(1.0,1.0,1.0));
+    
+  Aizawa(int num_points, float min, float max){
+    for (int i = 0; i < num_points; i++){
+      super.points.add(new Point((double)random(min, max), (double)random(min, max), (double)random(min, max)));
     }
+    super.dt = dt;
   }
   
-  private double dx(double x, double y, double z){
+  Aizawa(double x, double y, double z){
+    super.points.add(new Point(x, y, z));
+    super.dt = dt;
+  }
+  
+  Aizawa(){
+    super.points.add(new Point(0.1, 1, 0.01));
+    super.dt = dt;
+  }
+  
+  protected double dx(double x, double y, double z){
     return ((z - b) * x) - (d * y);
   }
-  private double dy(double x, double y, double z){
+  protected double dy(double x, double y, double z){
     return (d * x) + ((z - b) * y);
   }
-  private double dz(double x, double y, double z){
+  protected double dz(double x, double y, double z){
     return c + (a * z) - (pow((float)z, 3.0) / 3) - ((pow((float)x, 2.0) + pow((float)y, 2.0)) * (1 + e * z)) + (f * z * pow((float)x, 3));
-  }
-  
-  public void updatePoints(){
-    for(Point p : points){
-      double x = p.getX();
-      double y = p.getY();
-      double z = p.getZ();
-      p.update(dx(x,y,z) * dt, dy(x,y,z) * dt, dz(x,y,z) * dt);
-    }
-  }
-  
-  public void display(){
-    for (Point p : points) p.display();
   }
 }
