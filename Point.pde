@@ -50,10 +50,17 @@ public class Point{
   }
   
   public void reset(){
-    line = new ArrayList<PVector>();
+    line.clear();
     x = x_init;
     y = y_init;
     z = z_init;
+  }
+  
+  public void resetRandom(float min, float max){
+    line.clear();
+    x = (double)random(min, max);
+    y = (double)random(min, max);
+    z = (double)random(min, max);
   }
   
   public double getX(){

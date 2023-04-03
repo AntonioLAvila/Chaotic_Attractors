@@ -26,4 +26,8 @@ public abstract class Attractor{
   public void reset(){
     for (Point p : points) p.reset();
   }
+  
+  public void resetRandom(float min, float max){
+    for (Point p : points) p.resetRandom(min, max);
+  }
 }
