@@ -4,12 +4,19 @@ public class Point{
   private double z;
   private int l = 100; //2147483647
   
+  private double x_init;
+  private double y_init;
+  private double z_init;
+  
   private ArrayList<PVector> line = new ArrayList<PVector>();
   
-  Point(double x_init, double y_init, double z_init){
-    x = x_init;
-    y = y_init;
-    z = z_init;
+  Point(double x, double y, double z){
+    this.x = x;
+    this.y = y;
+    this.z = z;
+    x_init = x;
+    y_init = y;
+    z_init = z;
     line.add(new PVector((float)x, (float)y, (float)z));
   }
   
@@ -40,6 +47,13 @@ public class Point{
     }else{
       line.add(new PVector((float)x, (float)y, (float)z));
     }
+  }
+  
+  public void reset(){
+    line = new ArrayList<PVector>();
+    x = x_init;
+    y = y_init;
+    z = z_init;
   }
   
   public double getX(){

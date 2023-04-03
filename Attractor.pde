@@ -22,4 +22,8 @@ public abstract class Attractor{
   public void setDt(double dt){
     this.dt = dt;
   }
+  
+  public void reset(){
+    for (Point p : points) p.reset();
+  }
 }
