@@ -1,8 +1,9 @@
 public class Rabinovich_Fabrikant extends Attractor{
-  public double dt = 0.05;
+  protected double dt = 0.05;
   private double alpha = 0.14;
   private double gamma = 0.10;
   
+  public float[] rotations = {2.3360925, -0.45515743, -2.1710842};
   
   Rabinovich_Fabrikant(int num_points, float min, float max){
     for (int i = 0; i < num_points; i++){

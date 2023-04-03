@@ -6,6 +6,11 @@ float min = -2;
 float max = 2;
 int timeout = 120;
 Halvorsen attractor = new Halvorsen(100, min, max);
+
+float r = attractor.rotations[0];
+float p = attractor.rotations[1];
+float y = attractor.rotations[2];
+
 PeasyCam cam;
 
 void setup(){
@@ -18,7 +23,7 @@ void setup(){
   //frameRate(170);
   colorMode(HSB);
   cam = new PeasyCam(this, 500);
-  cam.setRotations(2.3360925, -0.45515743, -2.1710842);
+  cam.setRotations(r, p, y);
   attractor.setDt(global_dt);
 }
 

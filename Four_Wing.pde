@@ -1,5 +1,5 @@
 public class Four_Wing extends Attractor{
-  public double dt = 0.05;
+  protected double dt = 0.05;
   
   private double a = 0.2;
   private double b = 0.01;

@@ -1,5 +1,5 @@
 public class Aizawa extends Attractor{
-  public double dt = 0.01;
+  protected double dt = 0.01;
   
   private double a = 0.95;
   private double b = 0.7;
@@ -7,6 +7,8 @@ public class Aizawa extends Attractor{
   private double d = 3.5;
   private double e = 0.25;
   private double f = 0.1;
+  
+  public float[] rotations = {2.3360925, -0.45515743, -2.1710842};
     
   Aizawa(int num_points, float min, float max){
     for (int i = 0; i < num_points; i++){

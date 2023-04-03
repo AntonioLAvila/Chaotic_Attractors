@@ -1,9 +1,11 @@
 public class Lorentz extends Attractor{
-  public double dt = 0.01;
+  protected double dt = 0.01;
   
   private double sigma = 10;
   private double rho = 28;
   private double beta = 8.0/3.0;
+  
+  public float[] rotations = {2.3360925, -0.45515743, -2.1710842};
     
   Lorentz(int num_points, float min, float max){
     for (int i = 0; i < num_points; i++){
