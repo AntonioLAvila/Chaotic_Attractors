@@ -1,10 +1,10 @@
 import peasy.*;
 
 double global_dt = 0.008;
-int time = 0; //in s
+float time = 0; //in s
 float min = -2;
 float max = 2;
-int timeout = 120;
+int timeout = 20;
 Halvorsen attractor = new Halvorsen(100, min, max);
 
 float r = attractor.rotations[0];
@@ -16,8 +16,8 @@ PeasyCam cam;
 void setup(){
   strokeWeight(.8);
   //noCursor();
-  //size(800, 800, P3D);
-  fullScreen(P3D);
+  size(800, 800, P3D);
+  //fullScreen(P3D);
   noFill();
   smooth();
   //frameRate(170);
@@ -29,12 +29,13 @@ void setup(){
 
 void draw(){
   background(0);
-  time = millis()/1000;
+  time = millis()/1000.0;
   scale(13);
   attractor.display();
   attractor.updatePoints();
-  if(time % timeout == 0){
-    attractor.resetRandom(min, max);
-    time = 0;
+  if(time != 0 && time % timeout == 0){
+    //attractor.resetRandom(min, max);
+    global_dt = -global_dt;
+    attractor.setDt(global_dt);
   }
 }

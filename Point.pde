@@ -9,7 +9,6 @@ public class Point{
   private double z_init;
   
   private ArrayList<PVector> line = new ArrayList<PVector>();
-  //private ArrayList<PVector> displayLine = new ArrayList<PVector>();
   
   Point(double x, double y, double z){
     this.x = x;
@@ -43,10 +42,6 @@ public class Point{
     x += dx;
     y += dy;
     z += dz;
-    //line.add(new PVector((float)x, (float)y, (float)z));
-    //displayLine.add(new PVector((float)x, (float)y, (float)z));
-    //if (line.size() >= l){
-    //}
     if (line.size() >= l){
       line.remove(0);
       line.add(new PVector((float)x, (float)y, (float)z));
