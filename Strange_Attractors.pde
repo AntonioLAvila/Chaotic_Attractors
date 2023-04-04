@@ -1,6 +1,5 @@
 import peasy.*;
 
-double global_dt = 0.008;
 int time = 0; //millis
 float min = -2;
 float max = 2;
@@ -15,7 +14,7 @@ Thomas thomas = new Thomas(100, min, max);
 PeasyCam cam;
 
 void setup(){
-  strokeWeight(.8);
+  strokeWeight(0.8);
   //noCursor();
   //size(800, 800, P3D);
   fullScreen(P3D);
@@ -26,7 +25,6 @@ void setup(){
   cam = new PeasyCam(this, 500);
   cam.setDistance(halvorsen.dist);
   cam.setRotations(halvorsen.rotations[0], halvorsen.rotations[1], halvorsen.rotations[2]);
-  //halvorsen.setDt(global_dt);
 }
 
 int ct = 0;
