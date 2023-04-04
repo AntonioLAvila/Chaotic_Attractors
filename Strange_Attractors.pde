@@ -1,15 +1,15 @@
 import peasy.*;
 
 double global_dt = 0.008;
-int time = 0; //in s
+int time = 0; //millis
 float min = -2;
 float max = 2;
-int timeout = 20;
-Halvorsen attractor = new Halvorsen(100, min, max);
+int timeout = 10000;
+Lorentz attractor = new Lorentz(100, min, max);
 
-float r = attractor.rotations[0];
-float p = attractor.rotations[1];
-float y = attractor.rotations[2];
+double r = attractor.rotations[0];
+double p = attractor.rotations[1];
+double y = attractor.rotations[2];
 
 PeasyCam cam;
 
@@ -23,17 +23,18 @@ void setup(){
   //frameRate(170);
   colorMode(HSB);
   cam = new PeasyCam(this, 500);
+  cam.setDistance(attractor.dist);
   cam.setRotations(r, p, y);
   attractor.setDt(global_dt);
 }
 
 void draw(){
   background(0);
-  time = millis()/1000;
   scale(13);
   attractor.display();
   attractor.updatePoints();
-  if(time != 0 && time % timeout == 0){
+  if(millis() - time >= timeout){
     attractor.resetRandom(min, max);
+    time = millis();
   }
 }
