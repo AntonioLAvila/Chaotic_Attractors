@@ -4,7 +4,7 @@ double global_dt = 0.008;
 int time = 0; //in s
 float min = -2;
 float max = 2;
-int timeout = 120;
+int timeout = 20;
 Halvorsen attractor = new Halvorsen(100, min, max);
 
 float r = attractor.rotations[0];
@@ -33,8 +33,7 @@ void draw(){
   scale(13);
   attractor.display();
   attractor.updatePoints();
-  if(time % timeout == 0){
+  if(time != 0 && time % timeout == 0){
     attractor.resetRandom(min, max);
-    time = 0;
   }
 }
