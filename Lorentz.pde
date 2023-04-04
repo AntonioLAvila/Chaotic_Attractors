@@ -5,8 +5,9 @@ public class Lorentz extends Attractor{
   private double rho = 28;
   private double beta = 8.0/3.0;
   
-  public float[] rotations = {2.3360925, -0.45515743, -2.1710842};
-    
+  public double[] rotations = {-0.068136886, 0.049527932, -1.5502285};
+  public double dist = 1000;
+  
   Lorentz(int num_points, float min, float max){
     for (int i = 0; i < num_points; i++){
       super.points.add(new Point((double)random(min, max), (double)random(min, max), (double)random(min, max)));

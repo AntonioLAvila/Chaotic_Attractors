@@ -3,7 +3,8 @@ public class Halvorsen extends Attractor{
   
   private double a = 1.89;
   
-  public float[] rotations = {2.3360925, -0.45515743, -2.1710842};
+  public double[] rotations = {2.3360925, -0.45515743, -2.1710842};
+  public double dist = 500;
   
   Halvorsen(int num_points, float min, float max){
     for (int i = 0; i < num_points; i++){

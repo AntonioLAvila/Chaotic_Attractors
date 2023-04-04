@@ -8,7 +8,8 @@ public class Aizawa extends Attractor{
   private double e = 0.25;
   private double f = 0.1;
   
-  public float[] rotations = {2.3360925, -0.45515743, -2.1710842};
+  public double[] rotations = {0.41769165, -0.3316092, 0.38543573};
+  public double dist = 300;
     
   Aizawa(int num_points, float min, float max){
     for (int i = 0; i < num_points; i++){

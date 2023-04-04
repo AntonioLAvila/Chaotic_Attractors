@@ -4,6 +4,9 @@ public class Four_Wing extends Attractor{
   private double a = 0.2;
   private double b = 0.01;
   private double c = -0.4;
+  
+  public double[] rotations = {2.8596098, -0.57462484, 1.1091781};
+  public double dist = 300;
     
   Four_Wing(int num_points, float min, float max){
     for (int i = 0; i < num_points; i++){
